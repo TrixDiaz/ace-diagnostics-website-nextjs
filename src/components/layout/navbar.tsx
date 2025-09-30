@@ -85,7 +85,7 @@ export const Navbar = () => {
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
                     <Link href="/#hero" className="flex items-center gap-2">
-                        <span className="font-bold text-xl text-primary">ACE DIAGNOSTICS</span>
+                        <span className="font-bold text-xl text-primary font-zapfhumnst">ACE DIAGNOSTICS</span>
                     </Link>
 
                     {/* Desktop Menu */}

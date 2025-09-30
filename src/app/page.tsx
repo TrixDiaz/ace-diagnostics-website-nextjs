@@ -10,6 +10,7 @@ import { BenefitsSection } from "@/components/layout/sections/benefits";
 import { FeaturesSection } from "@/components/layout/sections/features";
 import { FooterSection } from "@/components/layout/sections/footer";
 import { Navbar } from "@/components/layout/navbar";
+import { MessengerButton } from "@/components/messenger-button";
 
 export default function Home() {
   return (
@@ -25,6 +26,7 @@ export default function Home() {
       <ContactSection />
       <FAQSection />
       <FooterSection />
+      <MessengerButton />
     </main>
   );
 }

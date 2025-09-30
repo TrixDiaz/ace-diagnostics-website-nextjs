@@ -10,8 +10,6 @@ interface SponsorsProps {
 const sponsors: SponsorsProps[] = [
     { img: "/images/hmo/maxicare.jpg", alt: "Maxicare" },
     { img: "/images/hmo/philcare.png", alt: "PhilCare" },
-    { img: "/images/hmo/medicare.jpg", alt: "Medicare Plus" },
-    { img: "/images/hmo/one health card.jpg", alt: "One Health Card" },
     { img: "/images/hmo/medocare.png", alt: "Medocare" },
     { img: "/images/hmo/kaiser.jpg", alt: "Kaiser" },
     { img: "/images/hmo/apex logo.jpg", alt: "Apex" },

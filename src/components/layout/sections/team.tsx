@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useMemo } from "react";
 import {
     Card,
     CardContent,
@@ -5,6 +8,7 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 interface TeamProps {
     name: string;
@@ -13,55 +17,154 @@ interface TeamProps {
     schedule: string[];
 }
 
+const teamList: TeamProps[] = [
+    {
+        name: "Ma. Lourdes Bunyi, M.D",
+        branch: "Fairview Branch",
+        specialization: "IM-Cardiologist",
+        schedule: [
+            "Monday (1:00 pm to 4:00 pm)",
+            "Friday (10:00 am to 12:00 nn)"
+        ],
+    },
+    {
+        name: "Dr. Freman Cerezo, M.D",
+        branch: "Fairview Branch",
+        specialization: "IM-Cardiologist",
+        schedule: [
+            "Monday (10:00 am to 12:00 nn)",
+            "Wednesday (10:00 pm to 12:00 nn)",
+            "Saturday (10:00 am to 12:00 nn)"
+        ],
+    },
+    {
+        name: "Ma. Luisa Afable, M.D",
+        branch: "Fairview Branch",
+        specialization: "IM-Cardiologist",
+        schedule: [
+            "Wednesday (2:00 pm to 4:00 pm)"
+        ],
+    },
+    {
+        name: "Ellen Aranas, M.D",
+        branch: "Fairview Branch",
+        specialization: "IM-Cardiologist",
+        schedule: [
+            "Tuesday (1:00 pm to 4:00 pm)",
+            "Thursday (1:00 pm to 4:00 pm)"
+        ],
+    },
+    {
+        name: "Rene V. Reyes, M.D",
+        branch: "Fairview Branch",
+        specialization: "IM-Cardiologist",
+        schedule: [
+            "Tuesday (10:00 am to 12:00 nn)",
+            "Thursday (10:00 am to 12:00 nn)",
+            "Saturday (2:00 pm to 4:00 pm)"
+        ],
+    },
+    {
+        name: "Marojorie Cerezo M.D",
+        branch: "Fairview Branch",
+        specialization: "Pediatrician",
+        schedule: [
+            "Monday (10:00 am to 12:00 nn)",
+            "Wednesday (10:00 am to 12:00 nn)",
+            "Friday (10:00 am to 12:00 nn)"
+        ],
+    },
+    {
+        name: "Paul Espina, M.D",
+        branch: "Fairview Branch",
+        specialization: "Urologist",
+        schedule: [
+            "Tuesday (1:00 pm to 3:00 pm)",
+            "Friday (9:00 am to 11:00 am)",
+        ],
+    },
+    {
+        name: "Christine Flores, M.D",
+        branch: "Fairview Branch",
+        specialization: "Internel Medicine",
+        schedule: [
+            "Monday (9:00 pm to 11:00 pm)",
+        ],
+    },
+    {
+        name: "Edison So, M.D",
+        branch: "Fairview Branch",
+        specialization: "Endocrinologist",
+        schedule: [
+            "By Appointment(On Call)",
+        ],
+    },
+    {
+        name: "Maria Angela Sarmiento, M.D",
+        branch: "Fairview Branch",
+        specialization: "OB-Gynecologist",
+        schedule: [
+            "(By Appointment)",
+            "Tueday (1:00 pm to 4:00 pm)",
+            "Thursday (10:00 am to 12:00 nn)"
+        ],
+    },
+    {
+        name: "Miguel Carlo Mendoza, M.D",
+        branch: "Fairview Branch",
+        specialization: "Endocrinologist",
+        schedule: [
+            "Saturday (2:00 pm to 4:00 pm)",
+        ],
+    },
+    {
+        name: "Kristel Tanhui-Manzana, M.D",
+        branch: "Fairview Branch",
+        specialization: "Nephrologist",
+        schedule: [
+            "Tuesday (1:00 pm to 3:00 pm)",
+        ],
+    },
+];
+
 export const TeamSection = () => {
-    const teamList: TeamProps[] = [
-        {
-            name: "Ma. Lourdes Bunyi, M.D",
-            branch: "Fairview Branch",
-            specialization: "IM-Cardiologist",
-            schedule: [
-                "Monday (1:00 pm to 4:00 pm)",
-                "Friday (10:00 am to 12:00 nn)"
-            ],
-        },
-        {
-            name: "Dr. Freman Cerezo, M.D",
-            branch: "Fairview Branch",
-            specialization: "IM-Cardiologist",
-            schedule: [
-                "Monday (10:00 am to 12:00 nn)",
-                "Wednesday (10:00 pm to 12:00 nn)",
-                "Saturday (10:00 am to 12:00 nn)"
-            ],
-        },
-        {
-            name: "Ma. Luisa Afable, M.D",
-            branch: "Fairview Branch",
-            specialization: "IM-Cardiologist",
-            schedule: [
-                "Wednesday (2:00 pm to 4:00 pm)"
-            ],
-        },
-        {
-            name: "Ellen Aranas, M.D",
-            branch: "Fairview Branch",
-            specialization: "IM-Cardiologist",
-            schedule: [
-                "Tuesday (1:00 pm to 4:00 pm)",
-                "Thursday (1:00 pm to 4:00 pm)"
-            ],
-        },
-        {
-            name: "Rene V. Reyes, M.D",
-            branch: "Fairview Branch",
-            specialization: "IM-Cardiologist",
-            schedule: [
-                "Tuesday (10:00 am to 12:00 nn)",
-                "Thursday (10:00 am to 12:00 nn)",
-                "Saturday (2:00 pm to 4:00 pm)"
-            ],
-        },
-    ];
+    const [ isExpanded, setIsExpanded ] = useState(false);
+    const [ selectedSpecialization, setSelectedSpecialization ] = useState<string>("All");
+
+    const INITIAL_VISIBLE_COUNT = 4;
+
+    // Get unique specializations
+    const specializations = useMemo(() => {
+        const unique = Array.from(new Set(teamList.map(member => member.specialization)));
+        return [ "All", ...unique.sort() ];
+    }, []);
+
+    // Filter team members based on selected specialization
+    const filteredTeamList = useMemo(() => {
+        if (selectedSpecialization === "All") {
+            return teamList;
+        }
+        return teamList.filter(member => member.specialization === selectedSpecialization);
+    }, [ selectedSpecialization ]);
+
+    // Get visible team members based on expanded state
+    const visibleTeamList = isExpanded
+        ? filteredTeamList
+        : filteredTeamList.slice(0, INITIAL_VISIBLE_COUNT);
+
+    // Check if there are more items to load
+    const hasMore = filteredTeamList.length > INITIAL_VISIBLE_COUNT;
+
+    // Handle load more / show less toggle
+    const handleToggleView = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    // Reset expanded state when filter changes
+    const handleFilterChange = (specialization: string) => {
+        setSelectedSpecialization(specialization);
+        setIsExpanded(false);
+    };
 
     return (
         <section id="team" className="lg:w-[75%] mx-auto py-24 sm:py-32">
@@ -74,8 +177,22 @@ export const TeamSection = () => {
                 </p>
             </div>
 
+            {/* Filter Buttons */}
+            <div className="flex flex-wrap gap-2 justify-center mb-8">
+                {specializations.map((specialization) => (
+                    <Button
+                        key={specialization}
+                        variant={selectedSpecialization === specialization ? "default" : "outline"}
+                        onClick={() => handleFilterChange(specialization)}
+                        className="text-sm"
+                    >
+                        {specialization}
+                    </Button>
+                ))}
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                {teamList.map(
+                {visibleTeamList.map(
                     ({ name, branch, specialization, schedule }, index) => (
                         <Card
                             key={index}
@@ -88,7 +205,7 @@ export const TeamSection = () => {
                                     </div>
                                 </div>
                                 <CardTitle className="py-6 pb-4 px-6 text-lg">
-                                    {name}
+                                    {name} <br />
                                     <Badge>{specialization}</Badge>
                                 </CardTitle>
                             </CardHeader>
@@ -107,6 +224,24 @@ export const TeamSection = () => {
                         </Card>
                     )
                 )}
+            </div>
+
+            {/* Load More / Show Less Button */}
+            {hasMore && (
+                <div className="flex justify-center mt-8">
+                    <Button
+                        onClick={handleToggleView}
+                        variant="outline"
+                        size="lg"
+                    >
+                        {isExpanded ? "Show Less" : "Load More"}
+                    </Button>
+                </div>
+            )}
+
+            {/* Show count info */}
+            <div className="text-center mt-4 text-sm text-muted-foreground">
+                Showing {visibleTeamList.length} of {filteredTeamList.length} doctors
             </div>
         </section>
     );

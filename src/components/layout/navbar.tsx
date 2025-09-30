@@ -99,7 +99,7 @@ export const Navbar = () => {
                                     <NavigationMenuContent>
                                         <div className="grid w-[600px] grid-cols-2 gap-5 p-4">
                                             <Image
-                                                src="/images/values.webp"
+                                                src="/images/fairview/accounting.jpg"
                                                 alt="Company Values"
                                                 className="h-full w-full rounded-md object-cover"
                                                 width={600}

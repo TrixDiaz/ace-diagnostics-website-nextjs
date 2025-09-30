@@ -19,17 +19,6 @@ export const FooterSection = () => {
                         </p>
                     </div>
 
-                    {/* Contact */}
-                    <div className="flex flex-col gap-2">
-                        <h3 className="font-bold text-lg">Contact</h3>
-                        <p className="opacity-70 font-semibold">Fairview</p>
-                        <p className="opacity-70">Unit 2-5 CPE Bldg. Don Mariano Marcos Ave., Fairview, Quezon City</p>
-                        <p className="opacity-70">(02) 8461 3905</p>
-                        <p className="opacity-70 font-semibold mt-2">Valenzuela</p>
-                        <p className="opacity-70">Unit 116-119 Arbortowne Plaza 2, Karuhatan Road, Gen. T. De Leon Valenzuela City</p>
-                        <p className="opacity-70">(02) 8636 6291 / (02) 8635 5918</p>
-                    </div>
-
                     {/* Services */}
                     <div className="flex flex-col gap-2">
                         <h3 className="font-bold text-lg">Services</h3>
@@ -61,6 +50,14 @@ export const FooterSection = () => {
                         </Link>
                         <Link href="/#faq" className="opacity-60 hover:opacity-100">
                             FAQ
+                        </Link>
+                    </div>
+
+                    {/* Legal */}
+                    <div className="flex flex-col gap-2">
+                        <h3 className="font-bold text-lg">Legal</h3>
+                        <Link href="/privacy-policy" className="opacity-60 hover:opacity-100">
+                            Privacy Policy
                         </Link>
                     </div>
 

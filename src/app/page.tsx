@@ -5,6 +5,7 @@ import { ServicesSection } from "@/components/layout/sections/services";
 import { TeamSection } from "@/components/layout/sections/team";
 import { FAQSection } from "@/components/layout/sections/faq";
 import { ContactSection } from "@/components/layout/sections/contact";
+import { OfferSection } from "@/components/layout/sections/offer";
 import { BenefitsSection } from "@/components/layout/sections/benefits";
 import { FeaturesSection } from "@/components/layout/sections/features";
 import { FooterSection } from "@/components/layout/sections/footer";
@@ -20,6 +21,7 @@ export default function Home() {
       <ServicesSection />
       <TeamSection />
       <BenefitsSection />
+      <OfferSection />
       <ContactSection />
       <FAQSection />
       <FooterSection />

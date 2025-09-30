@@ -84,16 +84,6 @@ export const FooterSection = () => {
                     <p>
                         &copy; {new Date().getFullYear()} ACE Diagnostics Corporation. All rights reserved.
                     </p>
-                    <p>
-                        Designed & Developed by{" "}
-                        <Link
-                            target="_blank"
-                            href="https://github.com/TrixDiaz"
-                            className="text-primary transition-all border-primary hover:border-b-2"
-                        >
-                            Trix Darlucio
-                        </Link>
-                    </p>
                 </section>
             </div>
         </footer>

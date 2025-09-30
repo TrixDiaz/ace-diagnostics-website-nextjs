@@ -1,81 +1,67 @@
-import { Github, Linkedin, Twitter } from "lucide-react";
 import {
     Card,
     CardContent,
     CardHeader,
     CardTitle,
-    CardFooter,
 } from "@/components/ui/card";
-import Link from "next/link";
-import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 interface TeamProps {
-    imageUrl: string;
-    firstName: string;
-    lastName: string;
-    positions: string[];
-    socialNetworks: SocialNetworkProps[];
-}
-interface SocialNetworkProps {
     name: string;
-    url: string;
+    branch: string;
+    specialization: string;
+    schedule: string[];
 }
 
 export const TeamSection = () => {
     const teamList: TeamProps[] = [
         {
-            imageUrl: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-            firstName: "Dr. Maria",
-            lastName: "Santos",
-            positions: [ "Chief Medical Officer", "Internal Medicine Specialist" ],
-            socialNetworks: [
-                { name: "LinkedIn", url: "#" },
+            name: "Ma. Lourdes Bunyi, M.D",
+            branch: "Fairview Branch",
+            specialization: "IM-Cardiologist",
+            schedule: [
+                "Monday (1:00 pm to 4:00 pm)",
+                "Friday (10:00 am to 12:00 nn)"
             ],
         },
         {
-            imageUrl:
-                "https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-            firstName: "Dr. John",
-            lastName: "Cruz",
-            positions: [ "Cardiologist", "Echocardiography Specialist" ],
-            socialNetworks: [
-                { name: "LinkedIn", url: "#" },
+            name: "Dr. Freman Cerezo, M.D",
+            branch: "Fairview Branch",
+            specialization: "IM-Cardiologist",
+            schedule: [
+                "Monday (10:00 am to 12:00 nn)",
+                "Wednesday (10:00 pm to 12:00 nn)",
+                "Saturday (10:00 am to 12:00 nn)"
             ],
         },
         {
-            imageUrl:
-                "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-            firstName: "Dr. Ana",
-            lastName: "Reyes",
-            positions: [ "Pathologist", "Laboratory Director" ],
-            socialNetworks: [
-                { name: "LinkedIn", url: "#" },
+            name: "Ma. Luisa Afable, M.D",
+            branch: "Fairview Branch",
+            specialization: "IM-Cardiologist",
+            schedule: [
+                "Wednesday (2:00 pm to 4:00 pm)"
             ],
         },
         {
-            imageUrl:
-                "https://images.unsplash.com/photo-1594824371741-0b2b4b0b8a8b?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3",
-            firstName: "Dr. Carlos",
-            lastName: "Mendoza",
-            positions: [ "Radiologist", "Imaging Specialist" ],
-            socialNetworks: [
-                { name: "LinkedIn", url: "#" },
+            name: "Ellen Aranas, M.D",
+            branch: "Fairview Branch",
+            specialization: "IM-Cardiologist",
+            schedule: [
+                "Tuesday (1:00 pm to 4:00 pm)",
+                "Thursday (1:00 pm to 4:00 pm)"
+            ],
+        },
+        {
+            name: "Rene V. Reyes, M.D",
+            branch: "Fairview Branch",
+            specialization: "IM-Cardiologist",
+            schedule: [
+                "Tuesday (10:00 am to 12:00 nn)",
+                "Thursday (10:00 am to 12:00 nn)",
+                "Saturday (2:00 pm to 4:00 pm)"
             ],
         },
     ];
-
-    const socialIcon = (socialName: string) => {
-        switch (socialName) {
-            case "LinkedIn":
-                return <Linkedin size={20} />;
-            case "Github":
-                return <Github size={20} />;
-            case "X":
-                return <Twitter size={20} />; // Lucide uses Twitter icon
-            default:
-                return null;
-        }
-    };
 
     return (
         <section id="team" className="lg:w-[75%] mx-auto py-24 sm:py-32">
@@ -90,50 +76,34 @@ export const TeamSection = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {teamList.map(
-                    ({ imageUrl, firstName, lastName, positions, socialNetworks }, index) => (
+                    ({ name, branch, specialization, schedule }, index) => (
                         <Card
                             key={index}
                             className="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden"
                         >
                             <CardHeader className="p-0 gap-0">
-                                <div className="h-full overflow-hidden">
-                                    <Image
-                                        width={600}
-                                        height={250}
-                                        src={imageUrl}
-                                        alt=""
-                                        className="w-full aspect-square object-cover size-full"
-                                    />
+                                <div className="h-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center aspect-square">
+                                    <div className="text-6xl font-bold text-primary/30">
+                                        {name.split(' ')[ 0 ].charAt(0)}{name.split(' ')[ 1 ]?.charAt(0) || ''}
+                                    </div>
                                 </div>
-                                <CardTitle className="py-6 pb-4 px-6">
-                                    {firstName}
-                                    <span className="text-primary ml-2">{lastName}</span>
+                                <CardTitle className="py-6 pb-4 px-6 text-lg">
+                                    {name}
+                                    <Badge>{specialization}</Badge>
                                 </CardTitle>
                             </CardHeader>
 
-                            {positions.map((position, posIndex) => (
-                                <CardContent
-                                    key={posIndex}
-                                    className={`pb-0 text-muted-foreground ${posIndex === positions.length - 1 && "pb-6"
-                                        }`}
-                                >
-                                    {position}
-                                    {posIndex < positions.length - 1 && <span>,</span>}
-                                </CardContent>
-                            ))}
+                            <CardContent className="pb-2 px-6">
+                                <p className="text-muted-foreground text-sm">{branch}</p>
+                            </CardContent>
 
-                            <CardFooter className="space-x-4 mt-auto">
-                                {socialNetworks.map(({ name, url }, snIndex) => (
-                                    <Link
-                                        key={snIndex}
-                                        href={url}
-                                        target="_blank"
-                                        className="hover:opacity-80 transition-all"
-                                    >
-                                        {socialIcon(name)}
-                                    </Link>
+                            <CardContent className="pb-6 px-6">
+                                {schedule.map((time, timeIndex) => (
+                                    <p key={timeIndex} className="text-sm text-muted-foreground">
+                                        {time}
+                                    </p>
                                 ))}
-                            </CardFooter>
+                            </CardContent>
                         </Card>
                     )
                 )}

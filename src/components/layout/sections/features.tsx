@@ -10,47 +10,47 @@ interface FeaturesProps {
 
 const featureList: FeaturesProps[] = [
     {
-        icon: "TabletSmartphone",
-        title: "Broad ICT Portfolio",
-        description: "Comprehensive solutions — from networking, servers, & storage to virtualization & peripherals.",
+        icon: "TestTube",
+        title: "Comprehensive Laboratory Services",
+        description: "Complete diagnostic testing including hematology, clinical chemistry, clinical microscopy, and immunology.",
     },
     {
         icon: "BadgeCheck",
-        title: "Certified Expertise",
-        description: "Delivered by a technically skilled, certified team ready to tackle any ICT challenge.",
+        title: "Accredited & Certified",
+        description: "Fully licensed and accredited diagnostic center with certified medical technologists and pathologists.",
     },
     {
-        icon: "Goal",
-        title: "Solution-Centric Design",
-        description: "Customized, cost-effective, and value-engineered solutions tailored to unique business needs.",
+        icon: "Clock",
+        title: "Fast & Accurate Results",
+        description: "Quick turnaround time for test results with accurate and reliable diagnostic findings.",
     },
     {
-        icon: "PictureInPicture",
-        title: "High-Quality AV & Unified Communications",
-        description: "Strong audio-visual systems and advanced IP-PBX, Cloud PBX, and hybrid communications.",
+        icon: "Stethoscope",
+        title: "Expert Medical Professionals",
+        description: "Experienced physicians and medical staff from major hospitals in Metro Manila.",
     },
     {
-        icon: "MousePointerClick",
-        title: "Reliable Data Center Infrastructure",
-        description: "Robust mission-critical data center solutions — with UPS, HVAC, redundancy & fire safety.",
+        icon: "FileText",
+        title: "HMO & Insurance Accepted",
+        description: "Accredited with major HMOs and health insurance providers for convenient cashless transactions.",
     },
     {
-        icon: "Newspaper",
-        title: "Trusted Longevity",
-        description: "Nearly two decades of proven ICT excellence delivering efficient, client-focused solutions.",
+        icon: "Building2",
+        title: "Modern Facilities",
+        description: "State-of-the-art equipment and comfortable facilities ensuring quality patient care and service.",
     },
 ];
 
 export const FeaturesSection = () => (
     <section id="features" className="max-w-7xl mx-auto py-24 sm:py-32">
         <h2 className="text-lg text-primary text-center mb-2 tracking-wider">Features</h2>
-        <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">What Makes Us Different</h2>
+        <h2 className="text-3xl md:text-4xl text-center font-bold mb-4">Why Choose ACE Diagnostics</h2>
         <h3 className="md:w-1/2 mx-auto text-xl text-center text-muted-foreground mb-8">
-            With nearly two decades of ICT excellence, we deliver certified, customized solutions—from infrastructure and AV to networking and data centers.
+            Your trusted partner in health, providing quality diagnostic services with modern facilities, expert medical professionals, and comprehensive laboratory testing.
         </h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {featureList.map(({ icon, title, description }) => {
-                const IconComponent = LucideIcons[icon] as LucideIcon;
+                const IconComponent = LucideIcons[ icon ] as LucideIcon;
                 return (
                     <div key={title}>
                         <Card className="h-full bg-background border-0 shadow-none">

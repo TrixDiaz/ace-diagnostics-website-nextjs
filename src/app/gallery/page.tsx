@@ -140,7 +140,7 @@ const GalleryComponent = ({
                         {images.map((image) => (
                             <Dialog key={image.id}>
                                 <DialogTrigger asChild>
-                                    <Card className="group cursor-pointer overflow-hidden hover:shadow-lg transition-all duration-300">
+                                    <Card className="group cursor-pointer overflow-hidden hover:shadow-lg transition-all duration-300 py-0">
                                         <div className="relative aspect-square overflow-hidden">
                                             <Image
                                                 src={image.src}

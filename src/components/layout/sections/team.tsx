@@ -28,7 +28,7 @@ const teamList: TeamProps[] = [
         ],
     },
     {
-        name: "Dr. Freman Cerezo, M.D",
+        name: "Freman Cerezo, M.D",
         branch: "Fairview Branch",
         specialization: "IM-Cardiologist",
         schedule: [
@@ -46,7 +46,7 @@ const teamList: TeamProps[] = [
         ],
     },
     {
-        name: "Ellen Aranas, M.D",
+        name: "Ellen Gloria Aranas, M.D",
         branch: "Fairview Branch",
         specialization: "IM-Cardiologist",
         schedule: [

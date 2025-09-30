@@ -30,6 +30,7 @@ const imagingServices: ServiceProps[] = [
     { title: "2D Echo Doppler & Wall Strain", description: "Advanced cardiac imaging for heart function and blood flow analysis." },
     { title: "Treadmill Stress Test", description: "Exercise stress testing for cardiovascular fitness and heart health evaluation." },
     { title: "24Hr Holter Monitoring", description: "Continuous heart rhythm monitoring for comprehensive cardiac assessment." },
+    { title: "24 Hrs Ambulatory BP monitoring", description: "24 hours Blood pressure monitoring for your normal daily activities." },
 ];
 
 export const ServicesSection = () => (

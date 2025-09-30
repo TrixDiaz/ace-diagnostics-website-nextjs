@@ -7,7 +7,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import { MapPin, Clock } from "lucide-react";
+import { MapPin, Clock, Coins } from "lucide-react";
 
 interface LocationProps {
     title: string;
@@ -15,6 +15,7 @@ interface LocationProps {
     hours: string;
     mapUrl: string;
     mapEmbedUrl: string;
+    labPricing: string;
 }
 
 const locations: LocationProps[] = [
@@ -24,6 +25,7 @@ const locations: LocationProps[] = [
         hours: "Mon-Sat: 7:00 AM - 5:00 PM (Sunday: 7:00 AM - 3:00 PM)",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Fairview+Quezon+City",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph",
+        labPricing: "P 100 - P 1000",
     },
     {
         title: "Ace Diagnostics Novaliches",
@@ -31,6 +33,7 @@ const locations: LocationProps[] = [
         hours: "Mon-Sat: 7:00 AM - 5:00 PM",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Novaliches+Quezon+City",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph",
+        labPricing: "P 100 - P 1000",
     },
     {
         title: "Ace Diagnostics Valenzuela",
@@ -38,12 +41,13 @@ const locations: LocationProps[] = [
         hours: "Mon-Sat: 7:00 AM - 5:00 PM",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Valenzuela+City",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph",
+        labPricing: "P 100 - P 1000",
     },
 ];
 
-export const OfferSection = () => {
+export const LocationSection = () => {
     return (
-        <section id="offers" className="max-w-7xl mx-auto py-24 sm:py-32 px-4">
+        <section id="location" className="max-w-7xl mx-auto py-24 sm:py-32 px-4">
             <h2 className="text-lg text-primary text-center mb-2 tracking-wider">
                 Our Locations
             </h2>
@@ -85,6 +89,11 @@ export const OfferSection = () => {
                             <div className="flex items-start gap-2">
                                 <Clock className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                                 <p className="text-sm text-muted-foreground">{location.hours}</p>
+                            </div>
+
+                            <div className="flex items-start gap-2">
+                                <Coins className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                                <p className="text-sm text-muted-foreground">{location.labPricing}</p>
                             </div>
 
                             <Button

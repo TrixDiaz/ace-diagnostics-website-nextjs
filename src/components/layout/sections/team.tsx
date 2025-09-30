@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import {
     Card,
     CardContent,
@@ -15,6 +16,7 @@ interface TeamProps {
     branch: string;
     specialization: string;
     schedule: string[];
+    gender: string;
 }
 
 const teamList: TeamProps[] = [
@@ -26,6 +28,7 @@ const teamList: TeamProps[] = [
             "Monday (1:00 pm to 4:00 pm)",
             "Friday (10:00 am to 12:00 nn)"
         ],
+        gender: "Female",
     },
     {
         name: "Freman Cerezo, M.D",
@@ -36,6 +39,7 @@ const teamList: TeamProps[] = [
             "Wednesday (10:00 pm to 12:00 nn)",
             "Saturday (10:00 am to 12:00 nn)"
         ],
+        gender: "Female",
     },
     {
         name: "Ma. Luisa Afable, M.D",
@@ -44,6 +48,7 @@ const teamList: TeamProps[] = [
         schedule: [
             "Wednesday (2:00 pm to 4:00 pm)"
         ],
+        gender: "Female",
     },
     {
         name: "Ellen Gloria Aranas, M.D",
@@ -53,6 +58,7 @@ const teamList: TeamProps[] = [
             "Tuesday (1:00 pm to 4:00 pm)",
             "Thursday (1:00 pm to 4:00 pm)"
         ],
+        gender: "Female",
     },
     {
         name: "Rene V. Reyes, M.D",
@@ -63,6 +69,7 @@ const teamList: TeamProps[] = [
             "Thursday (10:00 am to 12:00 nn)",
             "Saturday (2:00 pm to 4:00 pm)"
         ],
+        gender: "Male",
     },
     {
         name: "Marojorie Cerezo M.D",
@@ -73,6 +80,7 @@ const teamList: TeamProps[] = [
             "Wednesday (10:00 am to 12:00 nn)",
             "Friday (10:00 am to 12:00 nn)"
         ],
+        gender: "Female",
     },
     {
         name: "Paul Espina, M.D",
@@ -82,6 +90,7 @@ const teamList: TeamProps[] = [
             "Tuesday (1:00 pm to 3:00 pm)",
             "Friday (9:00 am to 11:00 am)",
         ],
+        gender: "Male",
     },
     {
         name: "Christine Flores, M.D",
@@ -90,6 +99,7 @@ const teamList: TeamProps[] = [
         schedule: [
             "Monday (9:00 pm to 11:00 pm)",
         ],
+        gender: "Female",
     },
     {
         name: "Edison So, M.D",
@@ -98,6 +108,7 @@ const teamList: TeamProps[] = [
         schedule: [
             "By Appointment(On Call)",
         ],
+        gender: "Male",
     },
     {
         name: "Maria Angela Sarmiento, M.D",
@@ -108,6 +119,7 @@ const teamList: TeamProps[] = [
             "Tueday (1:00 pm to 4:00 pm)",
             "Thursday (10:00 am to 12:00 nn)"
         ],
+        gender: "Female",
     },
     {
         name: "Miguel Carlo Mendoza, M.D",
@@ -116,6 +128,7 @@ const teamList: TeamProps[] = [
         schedule: [
             "Saturday (2:00 pm to 4:00 pm)",
         ],
+        gender: "Male",
     },
     {
         name: "Kristel Tanhui-Manzana, M.D",
@@ -124,6 +137,7 @@ const teamList: TeamProps[] = [
         schedule: [
             "Tuesday (1:00 pm to 3:00 pm)",
         ],
+        gender: "Female",
     },
 ];
 
@@ -193,14 +207,30 @@ export const TeamSection = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 {visibleTeamList.map(
-                    ({ name, branch, specialization, schedule }, index) => (
+                    ({ name, branch, specialization, schedule, gender }, index) => (
                         <Card
                             key={index}
                             className="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden"
                         >
                             <CardHeader className="p-0 gap-0">
-                                <div className="h-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center aspect-square">
-                                    <div className="text-6xl font-bold text-primary/30">
+                                <div className="h-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center aspect-square relative">
+                                    <Image
+                                        src={gender === "Female"
+                                            ? "/images/female-unknown.jpg"
+                                            : "/images/male-unknown.jpg"
+                                        }
+                                        alt={`${name} profile`}
+                                        fill
+                                        className="object-cover"
+                                        onError={(e) => {
+                                            // Fallback to initials if image fails to load
+                                            const target = e.target as HTMLImageElement;
+                                            target.style.display = 'none';
+                                            const fallback = target.nextElementSibling as HTMLElement;
+                                            if (fallback) fallback.style.display = 'flex';
+                                        }}
+                                    />
+                                    <div className="text-6xl font-bold text-primary/30 absolute inset-0 items-center justify-center hidden">
                                         {name.split(' ')[ 0 ].charAt(0)}{name.split(' ')[ 1 ]?.charAt(0) || ''}
                                     </div>
                                 </div>

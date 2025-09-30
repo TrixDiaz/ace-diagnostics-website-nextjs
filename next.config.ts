@@ -24,6 +24,8 @@ const nextConfig: NextConfig = {
         hostname: "fastlink.com.pk",
       }
     ],
+    domains: [],
+    unoptimized: false,
   },
 };
 

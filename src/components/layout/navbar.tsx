@@ -26,7 +26,7 @@ interface FeatureProps {
 
 const guestRouteList: GuestRouteProps[] = [
     {
-        href: "/#hero",
+        href: "/#home",
         label: "Home",
     },
     {
@@ -38,11 +38,11 @@ const guestRouteList: GuestRouteProps[] = [
         label: "Gallery",
     },
     {
-        href: "/#benefits",
+        href: "/#about-us",
         label: "About Us",
     },
     {
-        href: "/#contact",
+        href: "/#see-us",
         label: "See Us",
     },
 ];
@@ -90,7 +90,7 @@ export const Navbar = () => {
 
                     {/* Desktop Menu */}
                     <div className="hidden lg:flex items-center gap-8 font-medium">
-                        <NavigationMenu>
+                        <NavigationMenu suppressHydrationWarning>
                             <NavigationMenuList className="flex items-center gap-6">
                                 <NavigationMenuItem>
                                     <NavigationMenuTrigger className="bg-transparent text-base">

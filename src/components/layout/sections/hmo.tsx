@@ -11,8 +11,17 @@ const sponsors: SponsorsProps[] = [
     { img: "/images/hmo/maxicare.jpg", alt: "Maxicare" },
     { img: "/images/hmo/philcare.png", alt: "PhilCare" },
     { img: "/images/hmo/medocare.png", alt: "Medocare" },
+    { img: "/images/hmo/icare.png", alt: "iCare" },
+    { img: "/images/hmo/fortune.png", alt: "Fortune Care" },
+    { img: "/images/hmo/valuecare.png", alt: "ValueCare" },
     { img: "/images/hmo/kaiser.jpg", alt: "Kaiser" },
+    { img: "/images/hmo/amaphil.avif", alt: "Amaphil" },
+    { img: "/images/hmo/flexicare.webp", alt: "Flexicare" },
+    { img: "/images/hmo/cocolife.png", alt: "Cocolife" },
+    { img: "/images/hmo/intellicare.png", alt: "Intellicate" },
+    { img: "/images/hmo/eastwest.png", alt: "Eastwest" },
     { img: "/images/hmo/apex logo.jpg", alt: "Apex" },
+    { img: "/images/hmo/sunlife.png", alt: "Sunlife" },
     { img: "/images/hmo/fortune care.png", alt: "Fortune Care" },
     { img: "/images/hmo/medasia.jpg", alt: "MedAsia" },
     { img: "/images/hmo/mega_ asianlife .png", alt: "Mega Asian Life" },
@@ -34,7 +43,7 @@ const sponsors: SponsorsProps[] = [
 // Duplicate array to make loop
 const loopedSponsors = [ ...sponsors, ...sponsors ];
 
-export default function SponsorSection() {
+export default function HMOSection() {
     return (
         <section id="sponsors" className="max-w-6xl mx-auto py-16 sm:py-24 overflow-hidden bg-transparent">
             <h2 className="text-lg md:text-2xl text-center mb-8">HMO Partners</h2>

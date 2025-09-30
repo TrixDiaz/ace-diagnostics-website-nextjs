@@ -1,11 +1,11 @@
 import React from "react";
 import { HeroSection } from "@/components/layout/sections/hero";
-import SponsorSection from "@/components/layout/sections/sponsors";
+import HMOSection from "@/components/layout/sections/hmo";
 import { ServicesSection } from "@/components/layout/sections/services";
 import { TeamSection } from "@/components/layout/sections/team";
 import { FAQSection } from "@/components/layout/sections/faq";
 import { ContactSection } from "@/components/layout/sections/contact";
-import { OfferSection } from "@/components/layout/sections/offer";
+import { LocationSection } from "@/components/layout/sections/location";
 import { BenefitsSection } from "@/components/layout/sections/benefits";
 import { FeaturesSection } from "@/components/layout/sections/features";
 import { FooterSection } from "@/components/layout/sections/footer";
@@ -17,12 +17,12 @@ export default function Home() {
     <main>
       <Navbar />
       <HeroSection />
-      <SponsorSection />
+      <HMOSection />
       <FeaturesSection />
       <ServicesSection />
       <TeamSection />
       <BenefitsSection />
-      <OfferSection />
+      <LocationSection />
       <ContactSection />
       <FAQSection />
       <FooterSection />

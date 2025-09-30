@@ -37,8 +37,8 @@ export const HeroSection = ({
             url: "#services",
         },
         secondary: {
-            text: "Contact Us",
-            url: "#contact",
+            text: "Branch Location",
+            url: "#location",
         },
     },
     images = [
@@ -72,7 +72,7 @@ export const HeroSection = ({
                                 <ArrowUpRight className="ml-2 size-4" />
                             </Badge>
                         )}
-                        <h1 className="my-6 text-pretty text-4xl font-bold lg:text-6xl font-zapfhumnst">
+                        <h1 className="my-6 text-pretty text-4xl font-bold text-primary lg:text-6xl font-zapfhumnst">
                             {heading}
                         </h1>
                         <p className="text-muted-foreground mb-8 max-w-xl lg:text-xl">

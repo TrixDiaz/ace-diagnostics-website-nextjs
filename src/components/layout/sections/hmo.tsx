@@ -22,7 +22,6 @@ const sponsors: SponsorsProps[] = [
     { img: "/images/hmo/eastwest.png", alt: "Eastwest" },
     { img: "/images/hmo/apex logo.jpg", alt: "Apex" },
     { img: "/images/hmo/sunlife.png", alt: "Sunlife" },
-    { img: "/images/hmo/fortune care.png", alt: "Fortune Care" },
     { img: "/images/hmo/medasia.jpg", alt: "MedAsia" },
     { img: "/images/hmo/mega_ asianlife .png", alt: "Mega Asian Life" },
     { img: "/images/hmo/mega_amaphil logo.png", alt: "Mega Amaphil" },
@@ -50,20 +49,20 @@ export default function HMOSection() {
 
             <div className="relative w-full overflow-hidden">
                 <div
-                    className="flex animate-slide gap-12"
-                    style={{ animationDuration: "20s" }}
+                    className="flex animate-slide gap-8 md:gap-12"
+                    style={{ animationDuration: "15s" }}
                 >
                     {loopedSponsors.map(({ img, alt }, index) => (
                         <div
                             key={`${alt}-${index}`}
-                            className="flex items-center justify-center min-w-[120px] md:min-w-[160px]"
+                            className="flex items-center justify-center min-w-[100px] md:min-w-[160px] flex-shrink-0"
                         >
                             <Image
                                 src={img}
                                 alt={alt}
-                                width={160}
-                                height={80}
-                                className="object-contain"
+                                width={140}
+                                height={70}
+                                className="object-contain max-h-[70px] w-auto"
                             />
                         </div>
                     ))}

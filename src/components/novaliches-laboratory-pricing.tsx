@@ -118,7 +118,7 @@ const labTests: LabTest[] = [
     { name: "CA 72.3", price: 2800.00, type: "Tumor Markers" },
 ]
 
-const FairviewLaboratoryPricing = () => {
+const NovalichesLaboratoryPricing = () => {
     const [ searchTerm, setSearchTerm ] = useState("")
     const [ selectedType, setSelectedType ] = useState<string>("all")
 
@@ -147,7 +147,7 @@ const FairviewLaboratoryPricing = () => {
             </DialogTrigger>
             <DialogContent className="max-w-[95vw] sm:max-w-7xl max-h-[90vh] overflow-hidden flex flex-col">
                 <DialogHeader>
-                    <DialogTitle>Fairview Laboratory Pricelist</DialogTitle>
+                    <DialogTitle>Novaliches Laboratory Pricelist</DialogTitle>
                     <DialogDescription>
                         Browse our complete list of laboratory tests and their corresponding prices. Document No: CN# 0601-2025
                     </DialogDescription>
@@ -219,5 +219,5 @@ const FairviewLaboratoryPricing = () => {
     )
 }
 
-export { FairviewLaboratoryPricing }
+export { NovalichesLaboratoryPricing }
 

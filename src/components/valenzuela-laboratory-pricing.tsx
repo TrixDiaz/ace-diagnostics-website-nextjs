@@ -58,7 +58,7 @@ const labTests: LabTest[] = [
     { name: "DENGUE NS1", price: 1200.00, type: "Serology" },
     { name: "DENGUE BLOT (IGG/IGM)", price: 1200.00, type: "Serology" },
     { name: "DENGUE DUO (NS1/IGG,IGM)", price: 1800.00, type: "Serology" },
-    { name: "LIVER FUNCTION TEST ( LFT)", price: 1280.00, type: "Serology" },
+    { name: "LIVER FUNCTION TEST (LFT)", price: 1280.00, type: "Serology" },
     { name: "HBsAg SCREENING TEST", price: 300.00, type: "Serology" },
 
     // ELECTROLYTES
@@ -78,12 +78,12 @@ const labTests: LabTest[] = [
     { name: "TSH", price: 580.00, type: "Thyroid Function Test" },
 
     // CLINICAL CHEMISTRY
-    { name: "FASTING BLOOD SUGAR (FBS)", price: 90.00, type: "Clinical Chemistry" },
-    { name: "RANDOM BLOOD SUGAR (RBS)", price: 90.00, type: "Clinical Chemistry" },
+    { name: "FASTING BLOOD SUGAR (FBS)", price: 135.00, type: "Clinical Chemistry" },
+    { name: "RANDOM BLOOD SUGAR (RBS)", price: 140.00, type: "Clinical Chemistry" },
     { name: "POST PRANDIAL BLOOD SUGAR (PPBS)", price: 140.00, type: "Clinical Chemistry" },
-    { name: "BLOOD UREA NITROGEN (BUN)", price: 110.00, type: "Clinical Chemistry" },
-    { name: "CREATININE", price: 130.00, type: "Clinical Chemistry" },
-    { name: "URIC ACID", price: 110.00, type: "Clinical Chemistry" },
+    { name: "BLOOD UREA NITROGEN (BUN)", price: 140.00, type: "Clinical Chemistry" },
+    { name: "CREATININE", price: 140.00, type: "Clinical Chemistry" },
+    { name: "URIC ACID", price: 140.00, type: "Clinical Chemistry" },
     { name: "CHOLESTEROL", price: 180.00, type: "Clinical Chemistry" },
     { name: "TRIGLYCERIDES", price: 260.00, type: "Clinical Chemistry" },
     { name: "LIPID PROFILE (Chole, TAG, HDL,LDL,VLDL)", price: 750.00, type: "Clinical Chemistry" },
@@ -113,7 +113,7 @@ const labTests: LabTest[] = [
     { name: "PROSTATIC SPECIFIC ANTIGEN (PSA)", price: 1450.00, type: "Tumor Markers" },
     { name: "B-HCG", price: 1200.00, type: "Tumor Markers" },
     { name: "CA 125 - OVARY", price: 2050.00, type: "Tumor Markers" },
-    { name: "CA 15.3 -", price: 2500.00, type: "Tumor Markers" },
+    { name: "CA 15.3", price: 2500.00, type: "Tumor Markers" },
     { name: "CA 19.9 - BREAST", price: 2800.00, type: "Tumor Markers" },
     { name: "CA 72.3", price: 2800.00, type: "Tumor Markers" },
 ]
@@ -220,4 +220,3 @@ const ValenzuelaLaboratoryPricing = () => {
 }
 
 export { ValenzuelaLaboratoryPricing }
-

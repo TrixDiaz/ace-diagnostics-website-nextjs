@@ -13,12 +13,12 @@ interface ServiceProps {
 
 const laboratoryServices: ServiceProps[] = [
     { title: "Routine & Specialized Laboratory", description: "Comprehensive laboratory testing for accurate diagnosis and health monitoring." },
-    { title: "Pathology", description: "Expert pathological analysis for disease detection and treatment planning." },
-    { title: "Hematology", description: "Blood analysis and hematological studies for comprehensive health assessment." },
+    { title: "Pathology", description: "Expert pathologic analysis for disease detection and treatment planning." },
+    { title: "Hematology", description: "Blood analysis and hematologic studies for comprehensive health assessment." },
     { title: "Blood Chemistry", description: "Detailed biochemical analysis for metabolic and organ function evaluation." },
-    { title: "Immunology and Serology", description: "Advanced immunological testing for immune system assessment and disease detection." },
+    { title: "Immunology and Serology", description: "Advanced immunologic testing for immune system assessment and disease detection." },
     { title: "Clinical Microscopy", description: "Precise microscopic examination for cellular and tissue analysis." },
-    { title: "Pap's Smear", description: "Cervical cancer screening and gynecological health assessment." },
+    { title: "Pap's Smear", description: "Cervical cancer screening and gynecologic health assessment." },
 ];
 
 const imagingServices: ServiceProps[] = [

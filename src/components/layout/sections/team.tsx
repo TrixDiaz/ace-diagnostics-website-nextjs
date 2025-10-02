@@ -39,7 +39,7 @@ const teamList: TeamProps[] = [
             "Wednesday (10:00 pm to 12:00 nn)",
             "Saturday (10:00 am to 12:00 nn)"
         ],
-        gender: "Female",
+        gender: "Male",
     },
     {
         name: "Ma. Luisa Afable, M.D",

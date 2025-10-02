@@ -26,9 +26,9 @@ const locations: LocationProps[] = [
     {
         title: "Ace Diagnostics, Fairview",
         address: "Fairview, Quezon City",
-        hours: "Mon-Sat: 7:00 AM - 5:00 PM (Sunday: 7:00 AM - 3:00 PM)",
+        hours: "Mon-Sat: 7:00 AM - 4:00 PM (Sunday: 7:00 AM - 3:00 PM)",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Fairview+Quezon+City",
-        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph",
+        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.1362300027304!2d121.07077137643223!3d14.704887037910996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b09e7d6d7631%3A0x481c3ba178e14513!2sACE%20Diagnostics!5e0!3m2!1sen!2sph!4v1759390708913!5m2!1sen!2sph",
         laboratoryPricing: <FairviewLaboratoryPricing />
     },
     {
@@ -36,7 +36,7 @@ const locations: LocationProps[] = [
         address: "Novaliches, Quezon City",
         hours: "Mon-Sat: 7:00 AM - 5:00 PM",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Novaliches+Quezon+City",
-        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph",
+        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.060926502421!2d121.03640377457484!3d14.709146574410994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b0e133ba2629%3A0x73cab2ed9f0da93a!2sACE%20Diagnostics!5e0!3m2!1sen!2sph!4v1759390677143!5m2!1sen!2sph",
         laboratoryPricing: <NovalichesLaboratoryPricing />
     },
     {
@@ -44,7 +44,7 @@ const locations: LocationProps[] = [
         address: "Valenzuela City",
         hours: "Mon-Sat: 7:00 AM - 5:00 PM",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Valenzuela+City",
-        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.0!2d121.0!3d14.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQyJzAwLjAiTiAxMjHCsDAwJzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1234567890123!5m2!1sen!2sph",
+        mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d65024.85621194998!2d120.90178535636367!3d14.723709672903615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8800355337b25d85%3A0x8ada83c0278ce7aa!2sAce%20Diagnostics-%20Valenzuela!5e0!3m2!1sen!2sph!4v1759390544429!5m2!1sen!2sph",
         laboratoryPricing: <ValenzuelaLaboratoryPricing />
     },
 ];

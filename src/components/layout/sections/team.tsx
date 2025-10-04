@@ -329,7 +329,7 @@ export const TeamSection = () => {
     const [ selectedSpecialization, setSelectedSpecialization ] = useState<string>("All");
     const [ selectedBranch, setSelectedBranch ] = useState<string>("All");
 
-    const INITIAL_VISIBLE_COUNT = 4;
+    const INITIAL_VISIBLE_COUNT = 3;
 
     // Get unique specializations
     const specializations = useMemo(() => {

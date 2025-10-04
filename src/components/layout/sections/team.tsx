@@ -308,7 +308,7 @@ const teamList: TeamProps[] = [
                 "Thursday (10:00 am to 12:00 nn)",
             ]
         } ],
-        specialization: "Internal Medicine - Geriatrician",
+        specialization: "IM - Geriatrician",
         gender: "Female",
     },
     {
@@ -331,12 +331,6 @@ export const TeamSection = () => {
 
     const INITIAL_VISIBLE_COUNT = 3;
 
-    // Get unique specializations
-    const specializations = useMemo(() => {
-        const unique = Array.from(new Set(teamList.map(member => member.specialization)));
-        return [ "All", ...unique.sort() ];
-    }, []);
-
     // Get unique branches
     const branches = useMemo(() => {
         const unique = Array.from(new Set(
@@ -344,6 +338,21 @@ export const TeamSection = () => {
         ));
         return [ "All", ...unique.sort() ];
     }, []);
+
+    // Get specializations based on selected branch (cascading filter)
+    const specializations = useMemo(() => {
+        let filteredMembers = teamList;
+
+        // If a branch is selected, only get specializations from that branch
+        if (selectedBranch !== "All") {
+            filteredMembers = teamList.filter(member =>
+                member.branches.some(branch => branch.branch === selectedBranch)
+            );
+        }
+
+        const unique = Array.from(new Set(filteredMembers.map(member => member.specialization)));
+        return [ "All", ...unique.sort() ];
+    }, [ selectedBranch ]);
 
     // Filter team members based on selected specialization and branch
     const filteredTeamList = useMemo(() => {
@@ -385,6 +394,7 @@ export const TeamSection = () => {
 
     const handleBranchChange = (branch: string) => {
         setSelectedBranch(branch);
+        setSelectedSpecialization("All"); // Reset specialization when branch changes
         setIsExpanded(false);
     };
 
@@ -401,26 +411,16 @@ export const TeamSection = () => {
 
             {/* Filter Buttons */}
             <div className="space-y-6 mb-8">
-                {/* Specialization Filter */}
+                {/* Branch Filter - First Step */}
                 <div className="text-center">
-                    <h3 className="text-lg font-semibold mb-3">Filter by Specialization</h3>
-                    <div className="flex flex-wrap gap-2 justify-center">
-                        {specializations.map((specialization) => (
-                            <Button
-                                key={specialization}
-                                variant={selectedSpecialization === specialization ? "default" : "outline"}
-                                onClick={() => handleSpecializationChange(specialization)}
-                                className="text-sm"
-                            >
-                                {specialization}
-                            </Button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Branch Filter */}
-                <div className="text-center">
-                    <h3 className="text-lg font-semibold mb-3">Filter by Branch</h3>
+                    <h3 className="text-lg font-semibold mb-3">
+                        Step 1: Select Branch
+                        {selectedBranch !== "All" && (
+                            <span className="text-sm font-normal text-muted-foreground ml-2">
+                                (Selected: {selectedBranch})
+                            </span>
+                        )}
+                    </h3>
                     <div className="flex flex-wrap gap-2 justify-center">
                         {branches.map((branch) => (
                             <Button
@@ -433,6 +433,36 @@ export const TeamSection = () => {
                             </Button>
                         ))}
                     </div>
+                </div>
+
+                {/* Specialization Filter - Second Step */}
+                <div className="text-center">
+                    <h3 className="text-lg font-semibold mb-3">
+                        Step 2: Select Specialization
+                        {selectedBranch !== "All" && (
+                            <span className="text-sm font-normal text-muted-foreground ml-2">
+                                (Available in {selectedBranch})
+                            </span>
+                        )}
+                    </h3>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        {specializations.map((specialization) => (
+                            <Button
+                                key={specialization}
+                                variant={selectedSpecialization === specialization ? "default" : "outline"}
+                                onClick={() => handleSpecializationChange(specialization)}
+                                className="text-sm"
+                                disabled={selectedBranch !== "All" && specializations.length === 1 && specialization === "All"}
+                            >
+                                {specialization}
+                            </Button>
+                        ))}
+                    </div>
+                    {selectedBranch !== "All" && specializations.length === 1 && (
+                        <p className="text-sm text-muted-foreground mt-2">
+                            No specializations available for the selected branch.
+                        </p>
+                    )}
                 </div>
             </div>
 
@@ -447,8 +477,8 @@ export const TeamSection = () => {
                                 <div className="h-full overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center aspect-square relative">
                                     <Image
                                         src={gender === "Female"
-                                            ? "/images/female-unknown.jpg"
-                                            : "/images/male-unknown.jpg"
+                                            ? "/images/female-unknown.png"
+                                            : "/images/male-unknown.png"
                                         }
                                         alt={`${name} profile`}
                                         fill
@@ -475,7 +505,7 @@ export const TeamSection = () => {
                                 {branches.map((branchData, branchIndex) => (
                                     <div key={branchIndex} className="space-y-2">
                                         <div className="flex items-center gap-2">
-                                            <Badge variant="secondary" className="text-xs">
+                                            <Badge className="text-xs">
                                                 {branchData.branch}
                                             </Badge>
                                         </div>

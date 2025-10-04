@@ -30,8 +30,8 @@ const guestRouteList: GuestRouteProps[] = [
         label: "Home",
     },
     {
-        href: "/#services",
-        label: "Services",
+        href: "/#team",
+        label: "Doctors",
     },
     {
         href: "/gallery",

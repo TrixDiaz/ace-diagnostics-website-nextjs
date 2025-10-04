@@ -26,7 +26,7 @@ const locations: LocationProps[] = [
     {
         title: "Ace Diagnostics, Fairview",
         address: "Fairview, Quezon City",
-        hours: "Mon-Sat: 7:00 AM - 4:00 PM (Sunday: 7:00 AM - 3:00 PM)",
+        hours: "Mon-Sat: 6:30 AM - 4:00 PM (Sunday: 6:30 AM - 3:00 PM)",
         mapUrl: "https://www.google.com/maps/search/?api=1&query=Ace+Diagnostics+Fairview+Quezon+City",
         mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.1362300027304!2d121.07077137643223!3d14.704887037910996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b09e7d6d7631%3A0x481c3ba178e14513!2sACE%20Diagnostics!5e0!3m2!1sen!2sph!4v1759390708913!5m2!1sen!2sph",
         laboratoryPricing: <FairviewLaboratoryPricing />

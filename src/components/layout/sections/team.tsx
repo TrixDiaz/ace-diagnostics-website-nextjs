@@ -11,132 +11,315 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 
+interface BranchSchedule {
+    branch: string;
+    schedule: string[];
+}
+
 interface TeamProps {
     name: string;
-    branch: string;
+    branches: BranchSchedule[];
     specialization: string;
-    schedule: string[];
     gender: string;
 }
 
 const teamList: TeamProps[] = [
     {
         name: "Ma. Lourdes Bunyi, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Monday (1:00 pm to 4:00 pm)",
+                "Friday (10:00 am to 12:00 nn)"
+            ]
+        } ],
         specialization: "IM-Cardiologist",
-        schedule: [
-            "Monday (1:00 pm to 4:00 pm)",
-            "Friday (10:00 am to 12:00 nn)"
-        ],
         gender: "Female",
     },
     {
         name: "Freman Cerezo, M.D",
-        branch: "Fairview Branch",
-        specialization: "IM-Cardiologist",
-        schedule: [
-            "Monday (10:00 am to 12:00 nn)",
-            "Wednesday (10:00 pm to 12:00 nn)",
-            "Saturday (10:00 am to 12:00 nn)"
+        branches: [
+            {
+                branch: "Fairview Branch",
+                schedule: [
+                    "Monday (10:00 am to 12:00 nn)",
+                    "Wednesday (10:00 pm to 12:00 nn)",
+                    "Saturday (10:00 am to 12:00 nn)"
+                ]
+            },
+            {
+                branch: "Novaliches Branch",
+                schedule: [
+                    "Monday (2:00 pm to 4:00 pm)",
+                    "Tuesday (2:00 pm to 4:00 pm)",
+                    "Thursday (2:00 pm to 4:00 pm)",
+                    "Friday (2:00 pm to 4:00 pm)"
+                ]
+            }
         ],
+        specialization: "IM-Cardiologist",
         gender: "Male",
     },
     {
         name: "Ma. Luisa Afable, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Wednesday (2:00 pm to 4:00 pm)"
+            ]
+        } ],
         specialization: "IM-Cardiologist",
-        schedule: [
-            "Wednesday (2:00 pm to 4:00 pm)"
-        ],
+        gender: "Female",
+    },
+    {
+        name: "Leuvina Paguio, M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "Friday (1:00 pm to 3:00 pm)"
+            ]
+        } ],
+        specialization: "IM-Pediatrician",
+        gender: "Female",
+    },
+    {
+        name: "Albert Ong-Lopez, M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "Friday (1:00 pm to 3:00 pm)"
+            ]
+        } ],
+        specialization: "IM-Endocrinologist",
+        gender: "Male",
+    },
+    {
+        name: "Carissa Rae Mirano, M.D",
+        branches: [ {
+            branch: "Novaliches Branch",
+            schedule: [
+                "Monday (10:00 am to 12:00 pm)"
+            ]
+        } ],
+        specialization: "IM-Endocrinologist",
+        gender: "Female",
+    },
+    {
+        name: "Ria Manicad, M.D",
+        branches: [ {
+            branch: "Novaliches Branch",
+            schedule: [
+                "Thursday (10:00 am to 12:00 pm)",
+                "Friday (2:00 pm to 4:00 pm)"
+            ]
+        } ],
+        specialization: "IM-Endocrinologist",
         gender: "Female",
     },
     {
         name: "Ellen Gloria Aranas, M.D",
-        branch: "Fairview Branch",
-        specialization: "IM-Cardiologist",
-        schedule: [
-            "Tuesday (1:00 pm to 4:00 pm)",
-            "Thursday (1:00 pm to 4:00 pm)"
+        branches: [
+            {
+                branch: "Fairview Branch",
+                schedule: [
+                    "Tuesday (1:00 pm to 4:00 pm)",
+                    "Thursday (1:00 pm to 4:00 pm)"
+                ]
+            },
+            {
+                branch: "Novaliches Branch",
+                schedule: [
+                    "Wednesday (10:00 am to 4:00 pm)",
+                    "Saturday (10:00 am to 4:00 pm)"
+                ]
+            }
         ],
+        specialization: "IM-Cardiologist",
         gender: "Female",
     },
     {
         name: "Rene V. Reyes, M.D",
-        branch: "Fairview Branch",
-        specialization: "IM-Cardiologist",
-        schedule: [
-            "Tuesday (10:00 am to 12:00 nn)",
-            "Thursday (10:00 am to 12:00 nn)",
-            "Saturday (2:00 pm to 4:00 pm)"
+        branches: [
+            {
+                branch: "Fairview Branch",
+                schedule: [
+                    "Tuesday (10:00 am to 12:00 nn)",
+                    "Thursday (10:00 am to 12:00 nn)",
+                    "Saturday (2:00 pm to 4:00 pm)"
+                ]
+            },
+            {
+                branch: "Valenzuela Branch",
+                schedule: [
+                    "Tuesday (3:00 pm to 5:00 pm)",
+                    "Thursday (3:00 pm to 5:00 pm)",
+                ]
+            }
         ],
+        specialization: "IM-Cardiologist",
         gender: "Male",
     },
     {
+        name: "Jaret Consul M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "Wednesday (10:00 am to 12:00 nn)",
+                "Saturday (10:00 am to 12:00 nn)",
+            ]
+        } ],
+        specialization: "IM-Pulmonologist",
+        gender: "Female",
+    },
+    {
         name: "Marojorie Cerezo M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Monday (10:00 am to 12:00 nn)",
+                "Wednesday (10:00 am to 12:00 nn)",
+                "Friday (10:00 am to 12:00 nn)"
+            ]
+        } ],
         specialization: "Pediatrician",
-        schedule: [
-            "Monday (10:00 am to 12:00 nn)",
-            "Wednesday (10:00 am to 12:00 nn)",
-            "Friday (10:00 am to 12:00 nn)"
-        ],
         gender: "Female",
     },
     {
         name: "Paul Espina, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Tuesday (1:00 pm to 3:00 pm)",
+                "Friday (9:00 am to 11:00 am)",
+            ]
+        } ],
         specialization: "Urologist",
-        schedule: [
-            "Tuesday (1:00 pm to 3:00 pm)",
-            "Friday (9:00 am to 11:00 am)",
-        ],
         gender: "Male",
     },
     {
         name: "Christine Flores, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Monday (9:00 pm to 11:00 pm)",
+            ]
+        } ],
         specialization: "Internel Medicine",
-        schedule: [
-            "Monday (9:00 pm to 11:00 pm)",
-        ],
         gender: "Female",
     },
     {
         name: "Edison So, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "By Appointment(On Call)",
+            ]
+        } ],
         specialization: "Endocrinologist",
-        schedule: [
-            "By Appointment(On Call)",
-        ],
         gender: "Male",
     },
     {
         name: "Maria Angela Sarmiento, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "(By Appointment)",
+                "Tueday (1:00 pm to 4:00 pm)",
+                "Thursday (10:00 am to 12:00 nn)"
+            ]
+        } ],
         specialization: "OB-Gynecologist",
-        schedule: [
-            "(By Appointment)",
-            "Tueday (1:00 pm to 4:00 pm)",
-            "Thursday (10:00 am to 12:00 nn)"
-        ],
         gender: "Female",
     },
     {
         name: "Miguel Carlo Mendoza, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Saturday (2:00 pm to 4:00 pm)",
+            ]
+        } ],
         specialization: "Endocrinologist",
-        schedule: [
-            "Saturday (2:00 pm to 4:00 pm)",
-        ],
         gender: "Male",
     },
     {
         name: "Kristel Tanhui-Manzana, M.D",
-        branch: "Fairview Branch",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Tuesday (1:00 pm to 3:00 pm)",
+            ]
+        } ],
         specialization: "Nephrologist",
-        schedule: [
-            "Tuesday (1:00 pm to 3:00 pm)",
-        ],
+        gender: "Female",
+    },
+    {
+        name: "Mark Anthony Tiu, M.D, FPCP, DPSN",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "Monday (10:00 am to 12:00 nn)",
+                "Wednesday (10:00 am to 12:00 nn)",
+            ]
+        } ],
+        specialization: "Adult Nephrologist",
+        gender: "Male",
+    },
+    {
+        name: "Sharica Marcel, M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "Monday (1:00 pm to 4:00 pm)",
+                "Saturday (8:00 am to 3:00 pm)",
+            ]
+        } ],
+        specialization: "General Physician",
+        gender: "Female",
+    },
+    {
+        name: "John Paul Bagos, M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "Thursday (10:00 am to 12:00 nn)",
+            ]
+        } ],
+        specialization: "IM-Endocrinologist",
+        gender: "Male",
+    },
+    {
+        name: "Aishley Jayme L. Daza, M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "By Appointment(On Call)",
+            ]
+        } ],
+        specialization: "General Physician",
+        gender: "Female",
+    },
+    {
+        name: "Nathaniel Anthony Salvador, M.D",
+        branches: [ {
+            branch: "Novaliches Branch",
+            schedule: [
+                "Monday (10:00 am to 12:00 nn)",
+                "Thursday (10:00 am to 12:00 nn)",
+            ]
+        } ],
+        specialization: "Internal Medicine - Geriatrician",
+        gender: "Female",
+    },
+    {
+        name: "Rogerson Tiangco, M.D",
+        branches: [ {
+            branch: "Valenzuela Branch",
+            schedule: [
+                "By Appointment(On Call)",
+            ]
+        } ],
+        specialization: "Urologist",
         gender: "Female",
     },
 ];
@@ -144,6 +327,7 @@ const teamList: TeamProps[] = [
 export const TeamSection = () => {
     const [ isExpanded, setIsExpanded ] = useState(false);
     const [ selectedSpecialization, setSelectedSpecialization ] = useState<string>("All");
+    const [ selectedBranch, setSelectedBranch ] = useState<string>("All");
 
     const INITIAL_VISIBLE_COUNT = 4;
 
@@ -153,13 +337,32 @@ export const TeamSection = () => {
         return [ "All", ...unique.sort() ];
     }, []);
 
-    // Filter team members based on selected specialization
+    // Get unique branches
+    const branches = useMemo(() => {
+        const unique = Array.from(new Set(
+            teamList.flatMap(member => member.branches.map(b => b.branch))
+        ));
+        return [ "All", ...unique.sort() ];
+    }, []);
+
+    // Filter team members based on selected specialization and branch
     const filteredTeamList = useMemo(() => {
-        if (selectedSpecialization === "All") {
-            return teamList;
+        let filtered = teamList;
+
+        // Filter by specialization
+        if (selectedSpecialization !== "All") {
+            filtered = filtered.filter(member => member.specialization === selectedSpecialization);
         }
-        return teamList.filter(member => member.specialization === selectedSpecialization);
-    }, [ selectedSpecialization ]);
+
+        // Filter by branch
+        if (selectedBranch !== "All") {
+            filtered = filtered.filter(member =>
+                member.branches.some(branch => branch.branch === selectedBranch)
+            );
+        }
+
+        return filtered;
+    }, [ selectedSpecialization, selectedBranch ]);
 
     // Get visible team members based on expanded state
     const visibleTeamList = isExpanded
@@ -175,8 +378,13 @@ export const TeamSection = () => {
     };
 
     // Reset expanded state when filter changes
-    const handleFilterChange = (specialization: string) => {
+    const handleSpecializationChange = (specialization: string) => {
         setSelectedSpecialization(specialization);
+        setIsExpanded(false);
+    };
+
+    const handleBranchChange = (branch: string) => {
+        setSelectedBranch(branch);
         setIsExpanded(false);
     };
 
@@ -192,22 +400,45 @@ export const TeamSection = () => {
             </div>
 
             {/* Filter Buttons */}
-            <div className="flex flex-wrap gap-2 justify-center mb-8">
-                {specializations.map((specialization) => (
-                    <Button
-                        key={specialization}
-                        variant={selectedSpecialization === specialization ? "default" : "outline"}
-                        onClick={() => handleFilterChange(specialization)}
-                        className="text-sm"
-                    >
-                        {specialization}
-                    </Button>
-                ))}
+            <div className="space-y-6 mb-8">
+                {/* Specialization Filter */}
+                <div className="text-center">
+                    <h3 className="text-lg font-semibold mb-3">Filter by Specialization</h3>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        {specializations.map((specialization) => (
+                            <Button
+                                key={specialization}
+                                variant={selectedSpecialization === specialization ? "default" : "outline"}
+                                onClick={() => handleSpecializationChange(specialization)}
+                                className="text-sm"
+                            >
+                                {specialization}
+                            </Button>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Branch Filter */}
+                <div className="text-center">
+                    <h3 className="text-lg font-semibold mb-3">Filter by Branch</h3>
+                    <div className="flex flex-wrap gap-2 justify-center">
+                        {branches.map((branch) => (
+                            <Button
+                                key={branch}
+                                variant={selectedBranch === branch ? "default" : "outline"}
+                                onClick={() => handleBranchChange(branch)}
+                                className="text-sm"
+                            >
+                                {branch}
+                            </Button>
+                        ))}
+                    </div>
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-8">
                 {visibleTeamList.map(
-                    ({ name, branch, specialization, schedule, gender }, index) => (
+                    ({ name, branches, specialization, gender }, index) => (
                         <Card
                             key={index}
                             className="bg-muted/60 dark:bg-card flex flex-col h-full overflow-hidden"
@@ -240,15 +471,25 @@ export const TeamSection = () => {
                                 </CardTitle>
                             </CardHeader>
 
-                            <CardContent className="pb-2 px-6">
-                                <p className="text-muted-foreground text-sm">{branch}</p>
-                            </CardContent>
-
-                            <CardContent className="pb-6 px-6">
-                                {schedule.map((time, timeIndex) => (
-                                    <p key={timeIndex} className="text-sm text-muted-foreground">
-                                        {time}
-                                    </p>
+                            <CardContent className="pb-6 px-6 space-y-4">
+                                {branches.map((branchData, branchIndex) => (
+                                    <div key={branchIndex} className="space-y-2">
+                                        <div className="flex items-center gap-2">
+                                            <Badge variant="secondary" className="text-xs">
+                                                {branchData.branch}
+                                            </Badge>
+                                        </div>
+                                        <div className="space-y-1">
+                                            {branchData.schedule.map((time, timeIndex) => (
+                                                <p key={timeIndex} className="text-sm text-muted-foreground">
+                                                    {time}
+                                                </p>
+                                            ))}
+                                        </div>
+                                        {branchIndex < branches.length - 1 && (
+                                            <hr className="border-border/50" />
+                                        )}
+                                    </div>
                                 ))}
                             </CardContent>
                         </Card>
@@ -272,6 +513,12 @@ export const TeamSection = () => {
             {/* Show count info */}
             <div className="text-center mt-4 text-sm text-muted-foreground">
                 Showing {visibleTeamList.length} of {filteredTeamList.length} doctors
+                {selectedSpecialization !== "All" && (
+                    <span> • Specialization: {selectedSpecialization}</span>
+                )}
+                {selectedBranch !== "All" && (
+                    <span> • Branch: {selectedBranch}</span>
+                )}
             </div>
         </section>
     );

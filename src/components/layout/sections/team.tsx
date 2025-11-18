@@ -25,6 +25,17 @@ interface TeamProps {
 
 const teamList: TeamProps[] = [
     {
+        name: "Jeremiah V. Tio Cuison, M.D",
+        branches: [ {
+            branch: "Fairview Branch",
+            schedule: [
+                "Saturday (10:00 am to 12:00 nn)",
+            ]
+        } ],
+        specialization: "Orthopedic Surgeon",
+        gender: "Male",
+    },
+    {
         name: "Ma. Lourdes Bunyi, M.D",
         branches: [ {
             branch: "Fairview Branch",
@@ -113,7 +124,7 @@ const teamList: TeamProps[] = [
                 "Friday (2:00 pm to 4:00 pm)"
             ]
         } ],
-        specialization: "IM-Endocrinologist",
+        specialization: "IM-Pediatrician",
         gender: "Female",
     },
     {
@@ -160,7 +171,7 @@ const teamList: TeamProps[] = [
         gender: "Male",
     },
     {
-        name: "Jaret Consul M.D",
+        name: "Jaret Chessrence Consul M.D",
         branches: [ {
             branch: "Valenzuela Branch",
             schedule: [
@@ -172,7 +183,7 @@ const teamList: TeamProps[] = [
         gender: "Female",
     },
     {
-        name: "Marojorie Cerezo M.D",
+        name: "Marjorie Cerezo M.D",
         branches: [ {
             branch: "Fairview Branch",
             schedule: [
@@ -266,7 +277,7 @@ const teamList: TeamProps[] = [
         gender: "Male",
     },
     {
-        name: "Sharica Marcel, M.D",
+        name: "Shaira Marcelo, M.D",
         branches: [ {
             branch: "Valenzuela Branch",
             schedule: [
@@ -278,7 +289,7 @@ const teamList: TeamProps[] = [
         gender: "Female",
     },
     {
-        name: "John Paul Bagos, M.D",
+        name: "John Paul Martin Bagos, M.D",
         branches: [ {
             branch: "Valenzuela Branch",
             schedule: [

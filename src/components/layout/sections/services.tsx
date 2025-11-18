@@ -70,7 +70,7 @@ export const ServicesSection = () => (
             <TabsContent value="imaging">
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full mx-auto">
                     {imagingServices.map(({ title, description }) => (
-                        <Card key={title} className="bg-muted/60 dark:bg-card h-full">
+                        <Card key={title} className="bg-muted/50 dark:bg-card h-full">
                             <CardHeader>
                                 <CardTitle>{title}</CardTitle>
                                 <CardDescription>{description}</CardDescription>

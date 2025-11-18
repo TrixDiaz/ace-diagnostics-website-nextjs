@@ -1,72 +1,68 @@
 "use client";
 
+import { Marquee } from "@/components/ui/marquee";
 import Image from "next/image";
 
-interface SponsorsProps {
-    img: string;
-    alt: string;
-}
-
-const sponsors: SponsorsProps[] = [
-    { img: "/images/hmo/maxicare.jpg", alt: "Maxicare" },
-    { img: "/images/hmo/philcare.png", alt: "PhilCare" },
-    { img: "/images/hmo/medocare.png", alt: "Medocare" },
-    { img: "/images/hmo/icare.png", alt: "iCare" },
-    { img: "/images/hmo/fortune.png", alt: "Fortune Care" },
-    { img: "/images/hmo/valuecare.png", alt: "ValueCare" },
-    { img: "/images/hmo/kaiser.jpg", alt: "Kaiser" },
-    { img: "/images/hmo/amaphil.avif", alt: "Amaphil" },
-    { img: "/images/hmo/flexicare.webp", alt: "Flexicare" },
-    { img: "/images/hmo/cocolife.png", alt: "Cocolife" },
-    { img: "/images/hmo/intellicare.png", alt: "Intellicate" },
-    { img: "/images/hmo/eastwest.png", alt: "Eastwest" },
-    { img: "/images/hmo/apex logo.jpg", alt: "Apex" },
-    { img: "/images/hmo/sunlife.png", alt: "Sunlife" },
-    { img: "/images/hmo/medasia.jpg", alt: "MedAsia" },
-    { img: "/images/hmo/mega_ asianlife .png", alt: "Mega Asian Life" },
-    { img: "/images/hmo/mega_amaphil logo.png", alt: "Mega Amaphil" },
-    { img: "/images/hmo/mega_avega.png", alt: "Mega Avega" },
-    { img: "/images/hmo/mega_caritas.png", alt: "Mega Caritas" },
-    { img: "/images/hmo/mega_cocolife.png", alt: "Mega Cocolife" },
-    { img: "/images/hmo/mega_eastwest.png", alt: "Mega Eastwest" },
-    { img: "/images/hmo/mega_generali.png", alt: "Mega Generali" },
-    { img: "/images/hmo/mega_hmi.png", alt: "Mega HMI" },
-    { img: "/images/hmo/mega_insular.png", alt: "Mega Insular" },
-    { img: "/images/hmo/mega_intellicare.png", alt: "Mega Intellicare" },
-    { img: "/images/hmo/mega_medicard.jpg", alt: "Mega Medicard" },
-    { img: "/images/hmo/mega_medilink.png", alt: "Mega Medilink" },
-    { img: "/images/hmo/mega_valucare.png", alt: "Mega Valucare" },
-    { img: "/images/hmo/mega_vso.png", alt: "Mega VSO" },
+const sponsors = [
+    { src: "/images/hmo/mega_amaphil logo.png", name: "Amaphil" },
+    { src: "/images/hmo/apex logo.jpg", name: "Apex" },
+    { src: "/images/hmo/mega_ asianlife .png", name: "AsianLife" },
+    { src: "/images/hmo/mega_avega.png", name: "Avega" },
+    { src: "/images/hmo/mega_caritas.png", name: "Caritas" },
+    { src: "/images/hmo/mega_cocolife.png", name: "Cocolife" },
+    { src: "/images/hmo/cocolife.png", name: "Cocolife" },
+    { src: "/images/hmo/mega_eastwest.png", name: "EastWest" },
+    { src: "/images/hmo/eastwest.png", name: "EastWest" },
+    { src: "/images/hmo/flexicare.webp", name: "FlexiCare" },
+    { src: "/images/hmo/fortune.png", name: "Fortune" },
+    { src: "/images/hmo/mega_generali.png", name: "Generali" },
+    { src: "/images/hmo/mega_hmi.png", name: "HMI" },
+    { src: "/images/hmo/icare.png", name: "iCare" },
+    { src: "/images/hmo/mega_intellicare.png", name: "Intellicare" },
+    { src: "/images/hmo/mega_insular.png", name: "Insular" },
+    { src: "/images/hmo/kaiser.jpg", name: "Kaiser" },
+    { src: "/images/hmo/maxicare.jpg", name: "Maxicare" },
+    { src: "/images/hmo/medasia.jpg", name: "Medasia" },
+    { src: "/images/hmo/medicare.jpg", name: "Medicare" },
+    { src: "/images/hmo/mega_medicard.jpg", name: "Medicard" },
+    { src: "/images/hmo/mega_medilink.png", name: "Medilink" },
+    { src: "/images/hmo/medocare.png", name: "Medocare" },
+    { src: "/images/hmo/one health card.jpg", name: "One Health Card" },
+    { src: "/images/hmo/philcare.png", name: "Philcare" },
+    { src: "/images/hmo/sunlife.png", name: "Sunlife" },
+    { src: "/images/hmo/mega_valucare.png", name: "Valucare" },
+    { src: "/images/hmo/valuecare.png", name: "Valuecare" },
+    { src: "/images/hmo/mega_vso.png", name: "VSO" },
 ];
 
-// Duplicate array to make loop
-const loopedSponsors = [ ...sponsors, ...sponsors ];
 
 export default function HMOSection() {
     return (
-        <section id="sponsors" className="max-w-6xl mx-auto py-16 sm:py-24 overflow-hidden bg-transparent">
-            <h2 className="text-lg md:text-2xl text-center mb-8">HMO Partners</h2>
-
-            <div className="relative w-full overflow-hidden">
-                <div
-                    className="flex animate-slide gap-8 md:gap-12"
-                    style={{ animationDuration: "15s" }}
+        <section id="sponsors" className="max-w-[75%] mx-auto py-12 sm:py-24">
+            <h2 className="text-xl md:text-2xl text-center">
+                HEALTH & INSURANCE PLANS
+            </h2>
+            <p className="text-normal text-center mb-6">We accept the following:</p>
+            <div className="mx-auto">
+                <Marquee
+                    className="gap-12 [--duration:80s]"
+                    pauseOnHover={true}
                 >
-                    {loopedSponsors.map(({ img, alt }, index) => (
+                    {sponsors.map(({ src, name }, index) => (
                         <div
-                            key={`${alt}-${index}`}
-                            className="flex items-center justify-center min-w-[100px] md:min-w-[160px] flex-shrink-0"
+                            key={`${name}-${index}`}
+                            className="flex items-center text-xl md:text-2xl font-medium"
                         >
                             <Image
-                                src={img}
-                                alt={alt}
-                                width={140}
-                                height={70}
-                                className="object-contain max-h-[70px] w-auto"
+                                src={src}
+                                alt={`${name} logo`}
+                                height={100}
+                                width={100}
+                                className="mr-4"
                             />
                         </div>
                     ))}
-                </div>
+                </Marquee>
             </div>
         </section>
     );

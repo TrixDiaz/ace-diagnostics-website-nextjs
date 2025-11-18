@@ -1,14 +1,21 @@
+"use client";
 import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
+import React from "react";
 
-export const ToggleTheme = () => {
+export const ToggleTheme = React.forwardRef<
+    HTMLButtonElement,
+    React.ComponentProps<typeof Button>
+>((props, ref) => {
     const { theme, setTheme } = useTheme();
     return (
         <Button
+            ref={ref}
             onClick={() => setTheme(theme === "light" ? "dark" : "light")}
             variant="ghost"
             className="w-auto justify-start items-center"
+            {...props}
         >
             <div className="flex gap-2 dark:hidden">
                 <Moon className="size-4" />
@@ -23,4 +30,6 @@ export const ToggleTheme = () => {
             <span className="sr-only"> System </span>
         </Button>
     );
-};
+});
+
+ToggleTheme.displayName = "ToggleTheme";

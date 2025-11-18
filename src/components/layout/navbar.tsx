@@ -12,7 +12,7 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { ToggleTheme } from "@/components/toggle-theme";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { Button } from "@/components/ui/button";
 
 interface GuestRouteProps {
     href: string;
@@ -80,7 +80,7 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="backdrop-blur shadow-sm sticky top-0 z-50 border-b bg-background/95">
+        <nav className="backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-border/80 bg-background/95">
             <div className="max-w-7xl mx-auto px-6">
                 <div className="flex justify-between items-center h-16">
                     {/* Logo */}
@@ -129,7 +129,7 @@ export const Navbar = () => {
                                         <NavigationMenuLink asChild>
                                             <Link
                                                 href={href}
-                                                className="text-base px-3 py-2 hover:text-primary transition-colors"
+                                                className="text-base px-3 py-2 rounded-lg hover:text-primary hover:bg-primary/10 transition-all duration-200"
                                             >
                                                 {label}
                                             </Link>
@@ -140,22 +140,21 @@ export const Navbar = () => {
                         </NavigationMenu>
                     </div>
 
-                    {/* Theme Toggle and Mobile Menu Button */}
+                    {/* Theme Toggle, Online Result Button and Mobile Menu Button */}
                     <div className="flex items-center gap-4">
-                        <div className="hidden lg:flex">
-                            <Tooltip>
-                                <TooltipTrigger asChild>
-                                    <ToggleTheme />
-                                </TooltipTrigger>
-                                <TooltipContent>
-                                    <p className="text-xs">Toggle theme</p>
-                                </TooltipContent>
-                            </Tooltip>
+                        <div className="hidden lg:flex items-center gap-2">
+                            <Button
+                                onClick={() => window.open("https://fairview-bitrix-patient-result.vercel.app/sign-in", "_blank")}
+                                aria-label="Online Result"
+                            >
+                                Online Result
+                            </Button>
+                            <ToggleTheme />
                         </div>
 
                         {/* Mobile Menu Button */}
                         <button
-                            className="lg:hidden p-2 rounded-lg hover:bg-muted transition-colors"
+                            className="lg:hidden p-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-all duration-200"
                             aria-label="Toggle menu"
                             onClick={toggleMobileMenu}
                         >
@@ -176,12 +175,21 @@ export const Navbar = () => {
                                 <Link
                                     key={href}
                                     href={href}
-                                    className="block px-4 py-2 text-base font-medium hover:text-primary hover:bg-muted/50 transition-colors rounded-lg mx-2"
+                                    className="block px-4 py-2 text-base font-medium hover:text-primary hover:bg-primary/10 transition-all duration-200 rounded-lg mx-2"
                                     onClick={handleNavigation}
                                 >
                                     {label}
                                 </Link>
                             ))}
+                            <div className="px-4 py-2 mx-2 flex items-center gap-2">
+                                <Button
+                                    variant="ghost"
+                                    className="w-full justify-start"
+                                    onClick={() => window.open("https://onlineresults.acediagnostics.com", "_blank")}
+                                >
+                                    <span>Online Result</span>
+                                </Button>
+                            </div>
                             <div className="px-4 py-2 mx-2">
                                 <ToggleTheme />
                             </div>

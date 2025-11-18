@@ -27,6 +27,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { ClientOnly } from "@/components/ui/client-only";
 
 interface ContactNumber {
     label: string;
@@ -189,8 +190,17 @@ export const ContactSection = () => {
                 <Card className="bg-muted/60 dark:bg-card h-fit">
                     <CardHeader className="text-primary text-xl md:text-2xl font-bold">Feedback Form</CardHeader>
                     <CardContent className="px-4 md:px-6">
-                        <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="grid w-full gap-4">
+                        <ClientOnly
+                            fallback={
+                                <div className="grid w-full gap-4">
+                                    <div className="h-10 bg-muted animate-pulse rounded-md" />
+                                    <div className="h-10 bg-muted animate-pulse rounded-md" />
+                                    <div className="h-10 bg-muted animate-pulse rounded-md" />
+                                </div>
+                            }
+                        >
+                            <Form {...form}>
+                                <form onSubmit={form.handleSubmit(onSubmit)} className="grid w-full gap-4">
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <FormField
                                         control={form.control}
@@ -300,8 +310,9 @@ export const ContactSection = () => {
                                 />
 
                                 <Button type="submit" className="mt-2 w-full">Send Message</Button>
-                            </form>
-                        </Form>
+                                </form>
+                            </Form>
+                        </ClientOnly>
                     </CardContent>
                 </Card>
             </div>

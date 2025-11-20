@@ -142,16 +142,7 @@ export const Navbar = () => {
 
                     {/* Theme Toggle, Online Result Button and Mobile Menu Button */}
                     <div className="flex items-center gap-4">
-                        <div className="hidden lg:flex items-center gap-2">
-                            <Button
-                                onClick={() => window.open("https://fairview-bitrix-patient-result.vercel.app/sign-in", "_blank")}
-                                aria-label="Online Result"
-                            >
-                                Online Result
-                            </Button>
-                            <ToggleTheme />
-                        </div>
-
+                        
                         {/* Mobile Menu Button */}
                         <button
                             className="lg:hidden p-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-all duration-200"
@@ -181,15 +172,6 @@ export const Navbar = () => {
                                     {label}
                                 </Link>
                             ))}
-                            <div className="px-4 py-2 mx-2 flex items-center gap-2">
-                                <Button
-                                    variant="ghost"
-                                    className="w-full justify-start"
-                                    onClick={() => window.open("https://onlineresults.acediagnostics.com", "_blank")}
-                                >
-                                    <span>Online Result</span>
-                                </Button>
-                            </div>
                             <div className="px-4 py-2 mx-2">
                                 <ToggleTheme />
                             </div>

@@ -12,7 +12,6 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { ToggleTheme } from "@/components/toggle-theme";
-import { Button } from "@/components/ui/button";
 
 interface GuestRouteProps {
     href: string;

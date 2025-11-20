@@ -141,7 +141,9 @@ export const Navbar = () => {
 
                     {/* Theme Toggle, Online Result Button and Mobile Menu Button */}
                     <div className="flex items-center gap-4">
-                        
+                        <div className="hidden lg:flex items-center gap-2">
+                            <ToggleTheme />
+                        </div>
                         {/* Mobile Menu Button */}
                         <button
                             className="lg:hidden p-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-all duration-200"
